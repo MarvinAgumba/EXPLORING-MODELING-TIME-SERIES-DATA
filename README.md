@@ -1,4 +1,4 @@
-# EXPLORING TIME SERIES DATA
+![image](https://github.com/MarvinAgumba/EXPLORING-MODELING-TIME-SERIES-DATA/assets/122484885/8cd682d5-4026-466c-926f-2771d0f218b6)# EXPLORING TIME SERIES DATA
 
 ## PREPROCESSING OUR TIME SERIES
 
@@ -56,9 +56,51 @@ Decomposing allows you to separately view seasonality (which could be daily, wee
 ![image](https://github.com/MarvinAgumba/EXPLORING-MODELING-TIME-SERIES-DATA/assets/122484885/5b59fd56-d0ad-4fd1-bff2-4cc13db51264)
 
 # MODELING TIME SERIES DATA
-Essentially, you're trying to find patterns and understand the data in a way that you can use this information to (hopefully) make accurate predictions about the future.\
- - **White Noise Model** features: Fixed and constant mean; Fixed and constant variance; No Correlation over Time (Example: Gaussian White Noise)\
+
+Essentially, you're trying to find patterns and understand the data in a way that you can use this information to (hopefully) make accurate predictions about the future.
+ - **White Noise Model** features: Fixed and constant mean; Fixed and constant variance; No Correlation over Time (Example: Gaussian White Noise)
  - **Random Walk Model** As opposed to the white noise model, the random walk model, however, has No Specified Mean/Variance; Strong Dependence over time; (Very common in Finance like exchange rate)
 
+**Autocorrelation:** It helps us study how each time series observation is related to its recent (or not so recent) past. Processes with greater autocorrelation are more predictable than those without any form of autocorrelation.
 
+**The Autocorrelation Function:** The autocorrelation function is a function that represents the autocorrelation of a time series as a function of the time lag. The autocorrelation function tells interesting stories about trends and seasonality. For example, if the original time series repeats itself every five days, you would expect to see a spike in the autocorrelation function at 5 days.
 
+ACF Plot interpretation: The dotted lines in the plot tell you about the statistical significance of the correlation. For the below time series you can say that our data is definitely autocorrelated for lags of twelve months and 24 months, but for some later lags the result is not significant.
+![image](https://github.com/MarvinAgumba/EXPLORING-MODELING-TIME-SERIES-DATA/assets/122484885/cefd4d3b-e06f-49c8-8c6e-7d3b3466648f)
+
+Below autocorrelation for multiples of 12 seems consistently statistically significant, while it decays for a longer time lags
+![image](https://github.com/MarvinAgumba/EXPLORING-MODELING-TIME-SERIES-DATA/assets/122484885/62571f1b-5bff-4211-b13b-48df92b4847a)
+
+**Partial Autocorrelation Function** (or PACF) gives the partial correlation of a time series with its own lagged values, controlling for the values of the time series at all shorter lags (unlike the autocorrelation function, which does not control for other lags).
+
+![image](https://github.com/MarvinAgumba/EXPLORING-MODELING-TIME-SERIES-DATA/assets/122484885/78d23898-23bc-47d2-ab85-b79c93451e99)
+
+## Modeling with Autoregressive and Moving Average Models
+ARMA (Autoregressive and Moving Average) modeling is a tool for forecasting time series values by regressing the variable on its own lagged (past) values
+
+An autoregressive (AR) model is when a value from a time series is regressed on previous values from the same time series\
+The first-order AR model would be represented as `(1,0,0)`.
+
+The Moving Average model can be described as the weighted sum of today's and yesterday's noise\
+The first-order MA model is represented as `(0,1)`. 
+
+ARMA models assume that you've already detrended your data and that there is no seasonality
+
+The ARIMA Time Series Model (**AutoregRessive Integrated Moving Average**) with parameters (p,d,q) where:
+- `p` is the auto-regressive part of the model. It allows us to incorporate the effect of past values into our model. (Number of AR (Auto-Regressive) terms)
+- `d` is the **Integrated** component of an ARIMA model. This value is concerned with the amount of differencing as it identifies the number of lag values to subtract from the current observation. (Number of Differences)
+- `q` is the moving average part of the model which is used to set the error of the model as a linear combination of the error values observed at previous time points in the past. (Number of MA (Moving-Average) terms)
+
+### Model Evaluation
+
+**AIC (Akaike Information Criterion) as Regularization Measure** The Akaike information criterion (AIC) is an estimator of the relative quality of statistical models for a given set of data. Given a collection of models for the data, AIC estimates the quality of each model, relative to each of the other models. Thus, AIC provides a means for model selection. A model that fits the data very well while using lots of features will be assigned a larger AIC score than a model that uses fewer features to achieve the same goodness of fit. Therefore, we are interested in finding the model that yields the lowest AIC value. 
+
+**MSE (Mean Squared Error)** used to check for the accuracy of our forecasts. An MSE this close to 0 indicates that the estimator is predicting observations of the parameter with perfect accuracy, which would be an ideal scenario but it is not typically possible.  
+
+# ADDITIONAL READINGS
+
+[This blogpost](https://machinelearningmastery.com/gentle-introduction-autocorrelation-partial-autocorrelation/) more about ACF & PACF
+
+[here](https://www.quantstart.com/articles/Autoregressive-Integrated-Moving-Average-ARIMA-p-d-q-Models-for-Time-Series-Analysis). ARIMA Models for Time Series Analysis
+
+[here](https://www.statsmodels.org/dev/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.html) SARIMAX Documentation
