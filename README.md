@@ -22,8 +22,8 @@ In general, the `.fillna()` method can be used along with methods like `.bfill()
 **Trend Types:** Linear (Uppward and Downward); Periodic (go both up and down with similar variability); Trend with an increasing variance (variability changes over time); Exponential; Periodic and upward trend.
 
 ### Checking for Trends
-- Rolling Statistic - plot the moving average or moving variance and see if it varies with time.
-- The Dickey-Fuller Test - The Dickey-Fuller test is a statistical test for testing stationarity. The null hypothesis for the test is that the time series is not stationary. So if the test statistic is less than the critical value, we reject the null hypothesis and say that the series is stationary.
+- ***Rolling Statistic*** - plot the moving average or moving variance and see if it varies with time.
+- ***The Dickey-Fuller Test*** - The Dickey-Fuller test is a statistical test for testing stationarity. The null hypothesis for the test is that the time series is not stationary. So if the test statistic is less than the critical value, we reject the null hypothesis and say that the series is stationary.
 
 Below illustration: The red and black lines represent the rolling mean and rolling standard deviations. You can see that the mean is not constant over time, so we can reconfirm our conclusion that the time series is not stationary based on the rolling mean and rolling standard error.
 ![image](https://github.com/MarvinAgumba/EXPLORING-MODELING-TIME-SERIES-DATA/assets/122484885/a30b3f9e-9352-4381-8e78-cb152369c6ca)
