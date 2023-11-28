@@ -18,6 +18,8 @@ In general, the `.fillna()` method can be used along with methods like `.bfill()
 ## IDENTIFYING TRENDS
 **Stationarity**: A time series is said to be stationary if its statistical properties such as mean, variance, etc. remain constant over time. Most time series models work on the assumption that **the time series are stationary**. For general time series datasets, if it shows a particular behavior over time, there is a very high probability that it will follow a similar behavior in the future. Also, the theories related to stationary series are more mature and easier to implement as compared to non-stationary series.
 
+![image](https://github.com/MarvinAgumba/EXPLORING-MODELING-TIME-SERIES-DATA/assets/122484885/60855ffb-b365-4517-b7f6-030b46fa3308)
+
 ![image](https://github.com/MarvinAgumba/EXPLORING-MODELING-TIME-SERIES-DATA/assets/122484885/c5891040-4f5e-46d1-94a7-cf8654805e25)
 
 ![image](https://github.com/MarvinAgumba/EXPLORING-MODELING-TIME-SERIES-DATA/assets/122484885/4e27b9b0-eb84-4c60-a565-b8810b5f5d41)
@@ -32,3 +34,21 @@ Below illustration: The red and black lines represent the rolling mean and rolli
 ![image](https://github.com/MarvinAgumba/EXPLORING-MODELING-TIME-SERIES-DATA/assets/122484885/a30b3f9e-9352-4381-8e78-cb152369c6ca)
 
 ## REMOVING TRENDS
+Techniques:
+- Log Transformation
+- Subtracting Rolling Mean
+- Differencing
+
+**Time Series Decomposition:** Time series decomposition is a mathematical procedure that transforms a time series into multiple different time series. The original time series is often split into three component series:
+
+- **Seasonal**: Patterns that repeat within a fixed period. For example, a website might receive more visits during weekends; this would produce data with a seasonality of 7 days.
+
+- **Trend**: The underlying trend of the metrics. A website increasing in popularity should show a general trend that goes up.
+
+- **Random**: Also called "noise", "irregular", or "remainder", this is the residual of the original time series after the seasonal and trend series are removed.
+
+![image](https://github.com/MarvinAgumba/EXPLORING-MODELING-TIME-SERIES-DATA/assets/122484885/5b59fd56-d0ad-4fd1-bff2-4cc13db51264)
+
+
+
+
