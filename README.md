@@ -1,7 +1,8 @@
 # EXPLORING AND MODELING TIME SERIES DATA
 
 ## PREPROCESSING OUR TIME SERIES
-The first step after loading our data is to change the dates in our dataset from "non-null object" to "non-null datetime" (i.e., change the data type of dates). This can be done using the `to_datetime()` function from Pandas. Afterward, we ensure the date becomes the index.\
+The first step after loading our data is to change the dates in our dataset from "non-null object" to "non-null datetime" (i.e., change the data type of dates). This can be done using the `to_datetime()` function from Pandas. Afterward, we ensure the date becomes the index.
+
 When data are missing, they can be handled in a multitude of ways: 
 * Drop the data elements with missing values (this may result in low accuracy and loss of valuable information)
 * Fill in the missing values under a defined criteria 
