@@ -1,4 +1,4 @@
-# EXPLORING AND MODELING TIME SERIES DATA
+# EXPLORING TIME SERIES DATA
 
 ## PREPROCESSING OUR TIME SERIES
 
@@ -13,6 +13,10 @@ When data are missing, they can be handled in a multitude of ways:
 In general, the `.fillna()` method can be used along with methods like `.bfill()` or `.ffill()` as an argument/criterion for filling in missing values. `.bfill()` (backward filling) looks for the next valid entry in the time series and fills the gaps with this value. Similarly, `.ffill()` can be used to copy forward the previous valid entry of the time series (as demonstrated above).
 
 ## VISUALIZING OUR TIME SERIES
+**Line plots** and **dot plots** can be useful for getting a sense of how a time series dataset changes over time\
+**Histograms** and **density plots** can be useful for getting a sense of the time-independent distribution of a time series\
+**Box** and **whisker plots** per year (or other seasonality periods - day, week, month, etc) can be a great way to easily see trends in the distribution of time series data over time\
+**Heat maps** can also be useful for comparing changes in time series data across a couple of dimensions. For example, with months on one axis and years on another, they can be a great way to see both seasonality and year-on-year trends
 ![image](https://github.com/MarvinAgumba/EXPLORING-MODELING-TIME-SERIES-DATA/assets/122484885/20e67be2-0ae6-4180-a41f-bb25e6d42741)
 
 ## IDENTIFYING TRENDS
@@ -47,8 +51,14 @@ Techniques:
 
 - **Random**: Also called "noise", "irregular", or "remainder", this is the residual of the original time series after the seasonal and trend series are removed.
 
+Decomposing allows you to separately view seasonality (which could be daily, weekly, annual, etc), trend, and random, which is the variability in time series after removing the effects of the seasonality and trend
+
 ![image](https://github.com/MarvinAgumba/EXPLORING-MODELING-TIME-SERIES-DATA/assets/122484885/5b59fd56-d0ad-4fd1-bff2-4cc13db51264)
 
+# MODELING TIME SERIES DATA
+Essentially, you're trying to find patterns and understand the data in a way that you can use this information to (hopefully) make accurate predictions about the future.\
+ - **White Noise Model** features: Fixed and constant mean; Fixed and constant variance; No Correlation over Time (Example: Gaussian White Noise)\
+ - **Random Walk Model** As opposed to the white noise model, the random walk model, however, has No Specified Mean/Variance; Strong Dependence over time; (Very common in Finance like exchange rate)
 
 
 
